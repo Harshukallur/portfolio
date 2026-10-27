@@ -1,8 +1,8 @@
 import { EducationItem, SkillCategory, ExperienceItem, ProjectSummary } from '../types';
-import customGptImage from '../assets/images/custom_gpt_rag_preview_1793077011719.jpg';
-import neuroSymbolicImage from '../assets/images/neuro_symbolic_ai_preview_1793077013000.jpg';
-import jarvisImage from '../assets/images/jarvis_voice_assistant_preview_1793077012724.jpg';
-import bankNlpImage from '../assets/images/banknlp_banking_assistant_1793079212230.jpg';
+imagePath: '/src/assets/images/custom_gpt_rag_preview_1793077011719.jpg',
+imagePath: '/src/assets/images/neuro_symbolic_ai_preview_1793077013000.jpg',
+imagePath: '/src/assets/images/jarvis_voice_assistant_preview_1793077012724.jpg',
+imagePath: '/src/assets/images/banknlp_banking_assistant_1793079212230.jpg',
 export const PERSONAL_INFO = {
   name: 'Harshitha K A',
   title: 'M.Tech AI Student | AI Enthusiast | Python Developer',
