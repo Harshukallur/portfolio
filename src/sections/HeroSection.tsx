@@ -5,7 +5,6 @@ import {
   Download,
   Github,
   Linkedin,
-  Sparkles,
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
@@ -13,36 +12,28 @@ interface HeroSectionProps {
   onOpenResume: () => void;
 }
 
-const GOOGLE_DRIVE_RESUME_ID = 'https://drive.google.com/file/d/1hJh7owhJlU9o4mBOiNKOIgz1O9BWlEcn/view?usp=sharing';
+const GOOGLE_DRIVE_RESUME_URL =
+  'https://drive.google.com/file/d/1hJh7owhJlU9o4mBOiNKOIgz1O9BWlEcn/view?usp=sharing';
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onOpenResume,
 }) => {
   const handleDownloadResume = () => {
-    if (
-      !GOOGLE_DRIVE_RESUME_ID ||
-      GOOGLE_DRIVE_RESUME_ID === 'YOUR_GOOGLE_DRIVE_FILE_ID'
-    ) {
-      // Fall back to the existing resume handler until the Drive ID is configured.
-      onOpenResume();
-      return;
-    }
-
-    const downloadUrl =
-      `https://drive.google.com/uc?export=download&id=${GOOGLE_DRIVE_RESUME_ID}`;
-
-    window.open(downloadUrl, '_blank', 'noopener,noreferrer');
+    window.open(
+      GOOGLE_DRIVE_RESUME_URL,
+      '_blank',
+      'noopener,noreferrer'
+    );
   };
 
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* Background radial gradient glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-cyan-600/10 via-blue-600/10 to-indigo-600/5 blur-[140px] rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto w-full flex flex-col items-center">
         <div className="max-w-3xl text-center flex flex-col items-center">
           <div className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-3">
-            Hello, I&apos;m {PERSONAL_INFO.name}
+            Hello, I'm {PERSONAL_INFO.name}
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.14]">
@@ -62,7 +53,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {PERSONAL_INFO.bio}
           </p>
 
-          {/* Call-to-action buttons */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#projects"
@@ -107,7 +97,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
         </div>
 
-        {/* Academic Metric Highlights */}
         <div className="mt-14 pt-8 border-t border-slate-800/80 grid grid-cols-2 lg:grid-cols-4 gap-4 w-full">
           <div className="glass-panel p-4 rounded-xl">
             <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider block">
