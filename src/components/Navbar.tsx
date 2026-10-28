@@ -65,49 +65,7 @@ className="whitespace-nowrap shrink-0 hover:text-cyan-300 transition-colors rela
 </a>
 ))}
 </nav>
-
-          {/* Zone 3: 1 primary action */}
-          <div className="hidden md:flex items-center gap-3 shrink-0">
-            /* {onOpenResume && (
-              <button
-                onClick={onOpenResume}
-                className="px-3.5 py-1.5 text-xs font-mono font-medium text-cyan-300 border border-cyan-500/30 rounded-lg hover:bg-cyan-500/10 hover:border-cyan-400 transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Resume</span>
-              </button>
-            )} */
-
-            <a
-              href={isHomePage ? '#contact' : '/#contact'}
-              className="px-4 py-2 text-xs font-medium text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-colors whitespace-nowrap shrink-0 shadow-sm shadow-cyan-400/30 flex items-center gap-1"
-            >
-<span>Get in Touch</span>
-<ArrowUpRight className="w-3.5 h-3.5" />
-</a>
-</div>
-
-{/* Mobile hamburger */}
-<div className="md:hidden flex items-center gap-2">
-{onOpenResume && (
-<button
-onClick={onOpenResume}
-className="px-2.5 py-1 text-xs font-mono text-cyan-300 border border-cyan-500/30 rounded-md"
->
-CV
-</button>
-)}
-<button
-onClick={() => setIsOpen(!isOpen)}
-className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
-aria-label="Toggle navigation menu"
->
-{isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-</button>
-</div>
-</div>
-</div>
-
+       
 {/* Mobile Drawer */}
 {isOpen && (
 <div className="md:hidden bg-[#060d1f]/95 backdrop-blur-xl border-b border-cyan-500/20 px-4 pt-3 pb-6 space-y-2 mt-2">
@@ -144,4 +102,3 @@ Get in Touch
 );
 };
 
-just remove the resume button and dont change anything and give me the whole updated code
