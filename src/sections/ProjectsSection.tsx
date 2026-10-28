@@ -1,4 +1,3 @@
-```tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -32,10 +31,13 @@ export const ProjectsSection: React.FC = () => {
 
   // CustomGPT opens the hosted application.
   // Other projects retain their existing details-page URLs.
-  const getProjectUrl = (project: (typeof PROJECTS_SUMMARY)[number]) =>
-    project.id === 'custom-gpt'
-      ? CUSTOM_GPT_URL
-      : `/projects/${project.slug}`;
+const getProjectUrl = (project: { id: string; slug: string }) => {
+  if (project.id === 'custom-gpt') {
+    return CUSTOM_GPT_URL;
+  }
+
+  return `/projects/${project.slug}`;
+};
 
   const isExternalProject = (projectId: string) =>
     projectId === 'custom-gpt';
@@ -164,4 +166,3 @@ export const ProjectsSection: React.FC = () => {
     </section>
   );
 };
-```
