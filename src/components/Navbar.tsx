@@ -24,30 +24,12 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    {
-      name: 'Education',
-      href: isHomePage ? '#education' : '/#education',
-    },
-    {
-      name: 'Skills',
-      href: isHomePage ? '#skills' : '/#skills',
-    },
-    {
-      name: 'Experience',
-      href: isHomePage ? '#experience' : '/#experience',
-    },
-    {
-      name: 'Projects',
-      href: isHomePage ? '#projects' : '/#projects',
-    },
-    {
-      name: 'GitHub',
-      href: isHomePage ? '#github' : '/#github',
-    },
-    {
-      name: 'Contact',
-      href: isHomePage ? '#contact' : '/#contact',
-    },
+    { name: 'Education', href: isHomePage ? '#education' : '/#education' },
+    { name: 'Skills', href: isHomePage ? '#skills' : '/#skills' },
+    { name: 'Experience', href: isHomePage ? '#experience' : '/#experience' },
+    { name: 'Projects', href: isHomePage ? '#projects' : '/#projects' },
+    { name: 'GitHub', href: isHomePage ? '#github' : '/#github' },
+    { name: 'Contact', href: isHomePage ? '#contact' : '/#contact' },
   ];
 
   return (
@@ -60,8 +42,7 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-8">
-
-          {/* Zone 1: Brand */}
+          {/* Brand */}
           <Link
             to="/"
             className="flex items-center gap-2.5 text-base font-bold tracking-tight text-white whitespace-nowrap shrink-0 group"
@@ -75,7 +56,7 @@ export const Navbar: React.FC = () => {
             </span>
           </Link>
 
-          {/* Zone 2: Desktop Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
             {navLinks.map((link) => (
               <a
@@ -88,22 +69,22 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Zone 3: Get in Touch */}
+          {/* Desktop Get in Touch */}
           <div className="hidden md:flex items-center gap-3 shrink-0">
             <a
               href={isHomePage ? '#contact' : '/#contact'}
-              className="px-4 py-2 text-xs font-medium text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-colors whitespace-nowrap shrink-0 shadow-sm shadow-cyan-400/30 flex items-center gap-1"
+              className="px-4 py-2 text-xs font-medium text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-colors whitespace-nowrap shadow-sm shadow-cyan-400/30 flex items-center gap-1"
             >
               <span>Get in Touch</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
             <button
               type="button"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setIsOpen((previous) => !previous)}
               className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
               aria-label="Toggle navigation menu"
               aria-expanded={isOpen}
@@ -115,14 +96,12 @@ export const Navbar: React.FC = () => {
               )}
             </button>
           </div>
-
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {isOpen && (
         <div className="md:hidden bg-[#060d1f]/95 backdrop-blur-xl border-b border-cyan-500/20 px-4 pt-3 pb-6 space-y-2 mt-2">
-
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -135,8 +114,6 @@ export const Navbar: React.FC = () => {
           ))}
 
           <div className="pt-3 border-t border-slate-800 flex flex-col gap-2">
-
-            {/* GitHub Profile */}
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
@@ -146,7 +123,6 @@ export const Navbar: React.FC = () => {
               GitHub / Harshukallur
             </a>
 
-            {/* Get in Touch */}
             <a
               href={isHomePage ? '#contact' : '/#contact'}
               onClick={() => setIsOpen(false)}
@@ -154,7 +130,6 @@ export const Navbar: React.FC = () => {
             >
               Get in Touch
             </a>
-
           </div>
         </div>
       )}
