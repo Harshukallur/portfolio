@@ -65,23 +65,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               </a>
             ))}
           </nav>
-
-          {/* Zone 3: 1 primary action */}
-          <div className="hidden md:flex items-center gap-3 shrink-0">
-            {onOpenResume && (
-              <button
-                onClick={onOpenResume}
-                className="px-3.5 py-1.5 text-xs font-mono font-medium text-cyan-300 border border-cyan-500/30 rounded-lg hover:bg-cyan-500/10 hover:border-cyan-400 transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>Resume</span>
-              </button>
-            )}
-
-            <a
-              href={isHomePage ? '#contact' : '/#contact'}
-              className="px-4 py-2 text-xs font-medium text-slate-900 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition-colors whitespace-nowrap shrink-0 shadow-sm shadow-cyan-400/30 flex items-center gap-1"
-            >
               <span>Get in Touch</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
