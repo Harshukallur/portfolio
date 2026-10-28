@@ -1,12 +1,39 @@
+
 import React from 'react';
-import { ArrowRight, Download, Github, Linkedin, ExternalLink, Sparkles, FolderArchive } from 'lucide-react';
+import {
+  ArrowRight,
+  Download,
+  Github,
+  Linkedin,
+  Sparkles,
+} from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface HeroSectionProps {
   onOpenResume: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
+const GOOGLE_DRIVE_RESUME_ID = 'https://drive.google.com/file/d/1hJh7owhJlU9o4mBOiNKOIgz1O9BWlEcn/view?usp=sharing';
+
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  onOpenResume,
+}) => {
+  const handleDownloadResume = () => {
+    if (
+      !GOOGLE_DRIVE_RESUME_ID ||
+      GOOGLE_DRIVE_RESUME_ID === 'YOUR_GOOGLE_DRIVE_FILE_ID'
+    ) {
+      // Fall back to the existing resume handler until the Drive ID is configured.
+      onOpenResume();
+      return;
+    }
+
+    const downloadUrl =
+      `https://drive.google.com/uc?export=download&id=${GOOGLE_DRIVE_RESUME_ID}`;
+
+    window.open(downloadUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background radial gradient glow */}
@@ -26,14 +53,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
           </h1>
 
           <p className="mt-5 text-xs sm:text-sm md:text-base text-cyan-300/90 font-mono font-medium">
-            M.Tech Artificial Intelligence Student <span className="text-slate-600">|</span> AI Enthusiast <span className="text-slate-600">|</span> Python Developer
+            M.Tech Artificial Intelligence Student{' '}
+            <span className="text-slate-600">|</span> AI Enthusiast{' '}
+            <span className="text-slate-600">|</span> Python Developer
           </p>
 
           <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
             {PERSONAL_INFO.bio}
           </p>
 
-          {/* CTAs */}
+          {/* Call-to-action buttons */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#projects"
@@ -45,22 +74,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
             <button
               type="button"
-              onClick={onOpenResume}
+              onClick={handleDownloadResume}
               className="flex items-center gap-2 px-5 py-3 rounded-xl border border-cyan-500/30 bg-cyan-950/20 text-cyan-300 font-medium text-xs sm:text-sm hover:bg-cyan-500/10 hover:border-cyan-400 transition-all"
             >
               <Download className="w-4 h-4" />
               <span>Download Resume</span>
             </button>
-
-            <a
-              href="/harshitha-portfolio.zip"
-              download="harshitha-portfolio-codebase.zip"
-              className="flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-800 bg-slate-900/80 text-slate-300 font-medium text-xs sm:text-sm hover:text-cyan-300 hover:border-cyan-400 transition-all shadow-sm"
-              title="Download Complete Source Code (ZIP)"
-            >
-              <FolderArchive className="w-4 h-4 text-cyan-400" />
-              <span>Download Project ZIP</span>
-            </a>
 
             <div className="flex items-center gap-2 ml-1">
               <a
@@ -88,7 +107,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
           </div>
         </div>
 
-        {/* Academic Metric Highlights Strip */}
+        {/* Academic Metric Highlights */}
         <div className="mt-14 pt-8 border-t border-slate-800/80 grid grid-cols-2 lg:grid-cols-4 gap-4 w-full">
           <div className="glass-panel p-4 rounded-xl">
             <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider block">
@@ -97,14 +116,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             <span className="text-lg sm:text-xl font-bold text-white mt-1 block">
               CGPA 9.24
             </span>
-            <span className="text-xs text-slate-400">
-              MSRIT(2027)
-            </span>
+            <span className="text-xs text-slate-400">MSRIT (2027)</span>
           </div>
 
           <div className="glass-panel p-4 rounded-xl">
             <span className="text-[11px] font-mono text-blue-400 uppercase tracking-wider block">
-              B.Tech in AI & ML
+              B.Tech in AI &amp; ML
             </span>
             <span className="text-lg sm:text-xl font-bold text-white mt-1 block">
               CGPA 9.05
