@@ -7,7 +7,7 @@ export const ProjectCustomGptPage: React.FC = () => {
   return (
     <div className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10">
       <Link
-        to="/#projects"
+        to="https://custom-gpt-7hkd.vercel.app/"
         className="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 mb-8 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
